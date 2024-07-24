@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(CharacterController))]
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Camera playercamra;
+    public Camera Playercamera;
     public float walkspeed = 6f;
     public float runspeed = 12f;
     public float jumpPower = 7f;
@@ -42,7 +42,22 @@ public class NewBehaviourScript : MonoBehaviour
         if (Input.GetButton("Jump") && canMove && charactercontroller.isGrounded) 
         {
             moveDirection.y = jumpPower;
-        
+        }
+        else
+        {
+            moveDirection.y = movementDirectionY;
+        }
+        if (!charactercontroller.isGrounded)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
+
+        if (canMove)
+        {
+            rotationX += -Input.GetAxis("Mouse Y") * lookspeed;
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            Playercamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookspeed, 0);
         }
     }
 }
