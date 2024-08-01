@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S)) 
         { 
-            verticalMove = -1;
+            verticalMove = 1;
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.W)) 
         { 
-            verticalMove = 1; 
+            verticalMove = -1; 
         }
         else
         {
