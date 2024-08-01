@@ -650,7 +650,7 @@ MonoBehaviour:
   horizontalMove: 0
   verticalMove: 0
   characterController: {fileID: 940401393}
-  playerSpeed: 0
+  playerSpeed: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
